@@ -3,85 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birds3</title>
+    <title>Birds</title>
     <style>
-
-        body {margin: 0;
+        body {
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Work, sans-serif;
-            background-color: #F5F5DC; }
-
-            #header {
-                position: relative;
-                width: 100%;
-                height: 100vh;
-                background: url(img1-png);
-                background-size: 100%;
-                background-position: center;
-                background-attachment: fixed;
-            }
-
-            .inicio {
-            margin: 20px auto;
-            width: 66%;
-            padding: 20px;
+            font-family: 'Poppins';
+            background-color: #F5F5DC;
         }
 
-        .inicio {
-            padding: 0px;
-            margin: 0px;
-            }
+        #header {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url(foto1.png);
+            background-size: 160%;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
- .inicio img{
-            padding: 0px;
-            margin: 0px;
-            opacity: 30%;
-            }
-        .titulo {
+        .container {
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            text-align: right;
+            color: #2A2A2A;
+        }
+
+        .container h1 {
+            font-size: 200px; /* Tamaño de la fuente ajustado a 200px */
+            margin: 0;
+            line-height: 1;
+        }
+
+        .container h1:first-of-type {
+            margin-bottom: -20px; /* Distancia de 10px entre "BIRD" y "SOUNDS" */
+        }
+
+    .container h3 {
+               font-size: 40px; /* Tamaño de la fuente ajustado a 200px */
+            margin-top: 0.1px ;
+            line-height: 1;
+        }
+
+
+        .line {
+            width: 93.75vw; /* 15/16 del ancho de la pantalla */
+            height: 10px; /* Espesor de la línea */
+            background-color: #2A2A2A; /* Color de la línea */
+            margin-top: -30px; /* Distancia de 10px debajo de "SOUNDS" */
+            margin-left: auto; /* Hace que la línea se alinee con el lado derecho */
+        }
+
+        .c_audio {
+            width: 100%;
+            height: 100vw;
+        }
+
+        .c_audio p {
+            font-style: italic;
+            font-size: 15px;
+            position: absolute;
+            left: 35%;
+            top: 150vh;
 
         }
 
-        .container{
-        width: 95%;
-        height: 200px;
-        position: relative;
-        margin: 20px;
-    }
-    .box{
-        width: 100%;
-        height: 100%;            
-        position: absolute;
-        top: 0;
-        left: 0;
+    audio {
+        background-color: rgba(0, 0, 0, 0); /* Transparente */
         opacity: 1;
+        border-radius: 10px;
+        width: 50%;
+        position: absolute;
+        left: 50%; /* Centrar horizontalmente */
+        transform: translateX(-50%) scale(1.2); /* Centrar y aumentar el tamaño en 20% */
+        top: 160vh; /* Esto posiciona el reproductor 20vh más abajo de la pantalla inicial */
+}
 
-    .box p {left: 100%;
-
-    }
-    .stack-top{
-        z-index: 9;
-        margin: 20px; /* for demo purpose  */
-    }
+    audio::-webkit-media-controls-panel {
+        background-color: rgba(245, 245, 220, 1); /* Fondo beige */
 
     </style>
 </head>
 
+<body background="fondo.png">
 
+    <div id="header">
+        <div class="container">
+            <h1>BIRD</h1>
+            <h1>SOUNDS</h1>
+            <h3>EXPLORANDO LA NATURALEZA GRACIAS A LA TECNOLOGIA</h3>  
+            <div class="line"></div> <!-- Línea horizontal debajo de "SOUNDS" -->
+        </div>
+    </div>
 
-<body>
-
-    <div id="header"></div>
     <section>
-        <h2>BIRD SOUNDS</h2>
+      <div class="c_audio">
+        <audio controls loop>
+            <source src="indian_Paradise_Flycatcher Call_Female.mp3" type="audio/ogg">
+        </audio>
+<p>Canto de una Monarca Colilarga Asiática (Terpsiphone Paradisi)</p>
+        </div>
+        
     </section>
 
-    <section>
-    <div class="inicio">
-         <div class="container">
-        <div class="box" style="background: red;"><p>BIRD SOUNDS</p></div>
-
-    </div>
-</section>
+    <script type="text/javascript">
+        const bg = document.getElementById('header');
+        window.addEventListener('scroll', function () {
+            bg.style.backgroundSize = 160 - +window.pageYOffset / 12 + '%';
+        });
+    </script>
 </body>
 </html>
