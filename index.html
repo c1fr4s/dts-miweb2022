@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birds</title>
+    <title>Birds3</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins';
+            font-family: 'Work', sans-serif;
             background-color: #F5F5DC;
         }
 
@@ -28,61 +31,182 @@
             bottom: 0;
             right: 20px;
             text-align: right;
-            color: #2A2A2A;
+            color: #141414;
         }
 
         .container h1 {
-            font-size: 200px; /* Tamaño de la fuente ajustado a 200px */
+            font-size: 200px;
             margin: 0;
             line-height: 1;
+            animation: fade-down 2s;
         }
 
         .container h1:first-of-type {
-            margin-bottom: -20px; /* Distancia de 10px entre "BIRD" y "SOUNDS" */
+            margin-bottom: -20px;
         }
 
-    .container h3 {
-               font-size: 40px; /* Tamaño de la fuente ajustado a 200px */
-            margin-top: 0.1px ;
+        .container h3 {
+            font-size: 40px;
+            margin-top: 0.1px;
             line-height: 1;
+            animation: fade-down 2s;
         }
-
 
         .line {
-            width: 93.75vw; /* 15/16 del ancho de la pantalla */
-            height: 10px; /* Espesor de la línea */
-            background-color: #2A2A2A; /* Color de la línea */
-            margin-top: -30px; /* Distancia de 10px debajo de "SOUNDS" */
-            margin-left: auto; /* Hace que la línea se alinee con el lado derecho */
+            width: 93.75vw;
+            height: 10px;
+            background-color: #141414;
+            margin-top: -30px;
+            margin-left: auto;
         }
 
         .c_audio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            height: 100vw;
+            height: 10vw;
         }
 
         .c_audio p {
             font-style: italic;
             font-size: 15px;
-            position: absolute;
-            left: 35%;
-            top: 150vh;
-
+            margin-top: 40px;
+            text-align: center;
         }
 
-    audio {
-        background-color: rgba(0, 0, 0, 0); /* Transparente */
-        opacity: 1;
-        border-radius: 10px;
-        width: 50%;
-        position: absolute;
-        left: 50%; /* Centrar horizontalmente */
-        transform: translateX(-50%) scale(1.2); /* Centrar y aumentar el tamaño en 20% */
-        top: 160vh; /* Esto posiciona el reproductor 20vh más abajo de la pantalla inicial */
-}
+        audio {
+            background-color: rgba(0, 0, 0, 0);
+            opacity: 1;
+            border-radius: 10px;
+            width: 50%;
+            transform: scale(1.2);
+        }
 
-    audio::-webkit-media-controls-panel {
-        background-color: rgba(245, 245, 220, 1); /* Fondo beige */
+        audio::-webkit-media-controls-panel {
+            background-color: rgba(245, 245, 220, 1); /* Fondo beige */
+        }
+
+        section {
+            display: grid;
+            place-items: center;
+            align-content: center;
+            min-height: 50vh;
+        }
+
+        .hidden {
+            opacity: 0;
+            transition: all 1.5s;
+        }
+
+        .show {
+            opacity: 1;
+        }
+
+        .fondo_1 {
+            width: 100%;
+            height: 0vw;
+            right: 0;
+        }
+
+        .sec2 {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        .sec2 img {
+            width: 100%;
+            height: auto;
+        }
+
+        .sec2 p {
+            width: 80%;
+            margin-bottom: 20px;
+            color: #141414;
+            padding: 20px;
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.5;
+            border-radius: 10px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .overlay-image {
+            position: relative;
+            width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        /* NUEVA SECCIÓN */
+        .dark-section {
+            background-color: #141414;
+            width: 100%;
+            height: 300vh; /* Cubre toda la pantalla */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .dark-section p {
+            width: 80%;
+            color: beige;
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.5;
+            border-radius: 10px;
+        }
+
+        .dark-section .overlay-image {
+            width: 80vw; /
+            height: auto;
+        }
+
+   .image-caption {
+            font-style: italic;
+            font-size: 15px;
+            margin-top: -50px; /* Reducir el margen superior para acercarlo a la imagen */
+            text-align: center;
+            color: beige;
+        }
+
+         .video-container {
+            position: relative;
+            width: 80vw;
+        }
+
+        .video-title {
+            font-size: 15px;
+            font-style: italic;
+            color: beige;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .video-title i{
+            color: #141414;
+        }
+
+        video {
+            width: 80vw;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
 
     </style>
 </head>
@@ -91,28 +215,72 @@
 
     <div id="header">
         <div class="container">
-            <h1>BIRD</h1>
-            <h1>SOUNDS</h1>
-            <h3>EXPLORANDO LA NATURALEZA GRACIAS A LA TECNOLOGIA</h3>  
-            <div class="line"></div> <!-- Línea horizontal debajo de "SOUNDS" -->
+            <h1 class="hidden">BIRD</h1>
+            <h1 class="hidden">SOUNDS</h1>
+            <h3 class="hidden">EXPLORANDO LA NATURALEZA GRACIAS A LA TECNOLOGIA</h3>  
+            <div class="line"></div>
         </div>
     </div>
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
     <section>
-      <div class="c_audio">
-        <audio controls loop>
-            <source src="indian_Paradise_Flycatcher Call_Female.mp3" type="audio/ogg">
-        </audio>
-<p>Canto de una Monarca Colilarga Asiática (Terpsiphone Paradisi)</p>
+        <div class="c_audio">
+            <audio class="hidden" controls loop>
+                <source class="hidden" src="indian_Paradise_Flycatcher Call_Female.mp3" type="audio/ogg">
+            </audio>
+            <p class="hidden">Canto de una Monarca Colilarga Asiática (Terpsiphone Paradisi)</p>
         </div>
-        
     </section>
 
-    <script type="text/javascript">
+    <section>
+        <div class="sec2">
+            <img src="fondo1.png" alt="Fondo">
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN OSCURA -->
+    <section class="dark-section">
+            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+        <p class="hidden">
+            "Bird Sounds" es una colaboración entre Google Creative Lab y el Laboratorio de Ornitología de Cornell, 
+            que utiliza aprendizaje automático para organizar y analizar sonidos de aves. Dándole a los usuarios 
+            una experiencia interactiva para que puedan explorar una colección de cantos. Además, promueve valorar 
+            la diversidad de especies al integrar la tecnología con el entorno natural de una forma creativa e innovadora.
+        </p>
+        <br><br><br><br><br>
+        <img class="hidden overlay-image" src="foto3.png" alt="Nueva Imagen">
+        <p class="hidden image-caption">Layout de la página web del proyecto.</p>
+
+
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+        <!-- VIDEO PERSONAL -->
+        <div class="video-container">
+            <p class=" hidden video-title"><i>___________________</i>Uso de la página web del proyecto:</p>
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+
+
+    <script defer type="text/javascript">
         const bg = document.getElementById('header');
         window.addEventListener('scroll', function () {
             bg.style.backgroundSize = 160 - +window.pageYOffset / 12 + '%';
         });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
